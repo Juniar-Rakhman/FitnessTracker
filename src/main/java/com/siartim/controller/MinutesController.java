@@ -1,18 +1,18 @@
-package com.pluralsight.controller;
+package com.siartim.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-public class HelloController {
+/**
+ * Created by Juniar_R on 5/23/2016.
+ */
 
-	@RequestMapping(value ="/greeting")
+@Controller
+public class MinutesController {
+	@RequestMapping(value ="/addMinutes")
 	public String sayHello (Model model) {
-		
-		model.addAttribute("greeting", "Hello World");
-		
-		return "hello";
+		return "addMinutes";
 	}
 	
 }
