@@ -12,9 +12,13 @@
 	<mvc:resources location="pdfs" mapping="/pdfs/**"/>
 	<context:component-scan base-package="com.siartim.controller"/>
 
-    <bean id="LocaleResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages"></bean>
-    
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="Language"/>
+	</mvc:interceptors>
+
+	<bean id="LocaleResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" p:defaultLocale="en"/>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages"/>
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<property name="suffix" value=".jsp"/>
